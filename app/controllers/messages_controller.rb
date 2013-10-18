@@ -15,12 +15,12 @@ class MessagesController < ApplicationController
 
   def update
     @message = Message.find(params[:id])
-    @message.update(message_params)
+    @message.update(message_params) if @message.from? current_user
   end
 
   def destroy
     @message = Message.find(params[:id])
-    @message.update(removed: true) if @message.user == current_user
+    @message.update(removed: true) if @message.from? current_user
   end
 
 

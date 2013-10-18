@@ -10,4 +10,11 @@ class Message < ActiveRecord::Base
   # Scope
   default_scope {order(created_at: :desc)}
 
+  # Public methods
+
+  def from?(user)
+    self.user == user
+  end
+
+
 end

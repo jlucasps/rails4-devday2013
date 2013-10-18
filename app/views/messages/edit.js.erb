@@ -1,4 +1,4 @@
-<% if @message.user == current_user %>
+<% if @message.from? current_user %>
   <% edit_form = render partial: 'messages/form', locals: {message: @message} %>
   $("#message_<%= @message.id %>").replaceWith("<%= j edit_form %>");
 <% end %>

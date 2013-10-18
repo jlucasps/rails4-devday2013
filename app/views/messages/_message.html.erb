@@ -16,11 +16,13 @@
       <% unless message.removed? %>
       <div class='pull-right'>
         <i class='text-right'><%= time_ago_in_words(message.created_at) %></i>
-        <%= link_to "<i class='icon-edit text-info'></i>".html_safe,
-                    edit_message_path(message), remote: true, alt: t('edit'), style: 'display: inline-block' %>
+        <% if message.from? current_user %>
+          <%= link_to "<i class='icon-edit text-info'></i>".html_safe,
+                      edit_message_path(message), remote: true, alt: t('edit'), style: 'display: inline-block' %>
 
-        <%= link_to "<i class='icon-remove text-danger'></i>".html_safe,
-                    message, remote: true, method: :delete, style: 'display: inline-block' %>
+          <%= link_to "<i class='icon-remove text-danger'></i>".html_safe,
+                      message, remote: true, method: :delete, style: 'display: inline-block' %>
+        <% end %>
       </div>
     <% end %>
     </div>
