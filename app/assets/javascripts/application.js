@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap.min.js
+//= require app/modernizr.custom.js
+//= require app/classie.js
+//= require app/border_menu.js
