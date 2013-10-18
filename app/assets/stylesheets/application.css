@@ -9,8 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap.min.css
- *= require app/normalize.css
- *= require app/demo.css
- *= require app/icons.css
+ *= require font-awesome.min.css
  *= require app/animated_menu.css
  */
