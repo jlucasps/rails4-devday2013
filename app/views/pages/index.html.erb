@@ -1,15 +1,17 @@
 
 
 
-<div class="row" style='text-align:center;'>
+<% if user_signed_in? %>
+  <%= render partial: 'messages/form', locals: {:message => Message.new} %>
+<% end %>
 
-    <% label = "<span class='icon-facebook'></span> | Connect with Facebook" %>
-    <%= link_to label.html_safe, user_omniauth_authorize_path(:facebook), class: 'btn btn-default btn-lg' %>
-
+<div id='messages' >
+  <% if @messages.any? %>
+    <% @messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  <% end %>
 </div>
-
-
-
 
 
 

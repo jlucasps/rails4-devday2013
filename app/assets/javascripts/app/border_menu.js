@@ -34,6 +34,7 @@ $(function() {
 				overlay.removeEventListener( eventtype, closeClickFn );
 			};
 
+
 		var overlay = document.createElement('div');
 		overlay.className = 'bt-overlay';
 		menu.appendChild( overlay );

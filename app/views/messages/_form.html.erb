@@ -1,0 +1,20 @@
+<%= form_for(message, remote: true) do |f| %>
+  <div class="input-group">
+    <% if current_user.image.present? %>
+      <span class="input-group-addon" style='padding: 2px 4px;'>
+        <%= image_tag current_user.image, width: 25, height: 25 %>
+      </span>
+    <% else %>
+      <span class="input-group-addon">
+        <i class='icon-user'></i>
+      </span>
+    <% end %>
+
+    <%= f.text_field :content, placeholder: t('type_a_message'), class: 'form-control submitable' %>
+
+    <span class="input-group-btn">
+      <%= f.submit t('comment'), class: 'btn btn-default' %>
+    </span>
+  </div>
+  <br/><br/>
+<% end %>

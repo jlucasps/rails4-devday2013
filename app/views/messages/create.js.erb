@@ -1,0 +1,8 @@
+<% if @message.persisted? %>
+  $("#messages").prepend("<%= j(render @message) %>");
+  <% new_form = render partial: 'messages/form', locals: {message: Message.new} %>
+  $("#new_message").replaceWith("<%= j(new_form) %>");
+<% else %>
+  <% invalid_form = render partial: 'messages/form', locals: {message: @message} %>
+  $("#new_message").replaceWith("<%= j(invalid_form) %>");
+<% end %>

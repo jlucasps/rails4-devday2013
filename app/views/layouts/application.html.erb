@@ -10,15 +10,31 @@
 <body>
    <div class="container">
 
+    <% if user_signed_in? %>
+      <% img = (current_user.image.present? ? image_tag(current_user.image, with: 20, height: 20) : '') %>
+      <% label = "#{img}&nbsp;#{t('logout')}&nbsp;<i class='icon-signout'></i>" %>
+      <%= link_to label.html_safe, destroy_user_session_path, class: 'btn btn-default pull-right', method: :delete %>
+    <% end %>
+
     <div class='img-responsive' style='text-align: center;'>
-      <%= image_tag 'devday2013_branco.png', alt: t('devday') %>
+      <%= image_tag 'DevIsland_logo.png', alt: t('devday') %>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <div class="alert alert-info "><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning"><%= alert %></div>
+    <% end %>
 
 
     <div class='container' style='margin-left: 20px;'>
+      <% unless user_signed_in? %>
+        <div class="row" style='text-align:center;'>
+            <% label = "<span class='icon-facebook'></span> | Connect with Facebook" %>
+            <%= link_to label.html_safe, user_omniauth_authorize_path(:facebook), class: 'btn btn-default btn-lg' %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     

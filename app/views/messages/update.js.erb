@@ -1,0 +1,6 @@
+<% if @message.valid? %>
+  $("#edit_message_<%= @message.id %>").replaceWith("<%= j(render @message) %>");
+<% else %>
+  <% edit_form = render partial: 'messages/form', locals: {message: @message} %>
+  $("#edit_message_<%= @message.id %>").replaceWith("<%= j(edit_form) %>");
+<% end %>

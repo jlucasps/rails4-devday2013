@@ -1,0 +1,3 @@
+<% if @message.removed? %>
+  $("#message_<%= @message.id %>").replaceWith("<%= j(render @message) %>")
+<% end %>
