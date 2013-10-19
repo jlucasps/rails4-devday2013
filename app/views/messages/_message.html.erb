@@ -1,8 +1,8 @@
 <%= div_for message do %>
   <div class="media">
     <a class="pull-left" href="#">
-      <% if current_user.image.present? %>
-        <%= image_tag current_user.image, width: 25, height: 25 %>
+      <% if message.user.image.present? %>
+        <%= image_tag message.user.image, width: 25, height: 25 %>
       <% else %>
           <i class='icon-user'></i>
       <% end %>
